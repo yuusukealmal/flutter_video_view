@@ -349,31 +349,33 @@ abstract class BaseVideoControls<T extends StatefulWidget>
     showOrHide(visible: false);
 
     final List<double> list = controller.playSpeeds;
-    final double width = MediaQuery.of(context).size.width * .25;
-    final double height = MediaQuery.of(context).size.height;
 
     await showDialog<void>(
       context: context,
       barrierColor: Colors.transparent,
       useSafeArea: false,
       builder: (BuildContext ctx) {
-        return Dialog(
-          backgroundColor: config.tooltipBackgroundColor,
+        return Align(
           alignment: Alignment.centerRight,
-          insetPadding: EdgeInsets.zero,
           child: Container(
-            padding: EdgeInsets.symmetric(vertical: height * .1),
-            width: width,
+            width: 150,
+            padding: const EdgeInsets.only(right: 24, top: 10, bottom: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: config.tooltipBackgroundColor,
+            ),
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: list.map((double speed) {
                 final bool isSelected = speed == value.playbackSpeed;
 
                 Widget child = Container(
                   alignment: Alignment.center,
-                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                  // margin: const EdgeInsets.symmetric(horizontal: 10),
                   child: Text(
                     'x$speed',
                     style: config.defaultStyle.copyWith(
+                      fontWeight: isSelected ? FontWeight.bold : null,
                       color: isSelected ? Theme.of(context).primaryColor : null,
                     ),
                   ),

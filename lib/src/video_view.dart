@@ -559,7 +559,7 @@ class VideoController extends ValueNotifier<VideoValue> {
   double get maxPlaybackSpeed => 2;
 
   /// Playback speeds.
-  List<double> get playSpeeds => <double>[.5, 1, 1.5, 2];
+  List<double> get playSpeeds => <double>[.5, 1, 1.5, 2, 4];
 
   /// Maximum preview duration.
   Duration? get maxPreviewTime => config.maxPreviewTime;
