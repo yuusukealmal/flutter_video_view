@@ -88,6 +88,8 @@ class _VideoViewState extends BaseState<VideoView> {
     await Navigator.of(context, rootNavigator: config.useRootNavigator)
         .push(route);
     controller.exitFullScreen();
+
+    Navigator.of(context, rootNavigator: config.useRootNavigator).pop();
   }
 
   @override
