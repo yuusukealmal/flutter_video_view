@@ -126,6 +126,7 @@ final view = VideoView(
 | canChangeVolumeOrBrightness       | `bool`                                  | 音量或亮度是否可以调节                        | `true`                                                                                        |
 | canChangeProgress                 | `bool`                                  | 视频进度是否可以调整                         | `true`                                                                                        |
 | canBack                           | `bool`                                  | 是否显示返回按钮                           | `true`                                                                                        |
+| canCloseOnBack                    | `bool`                                  | 返回按钮是否直接关闭视频，在全屏模式下。               | `false`                                                                                       |
 | title                             | `String?`                               | 视频标题                               | `null`                                                                                        |
 | titleTextStyle                    | `TextStyle?`                            | 视频标题的文字的样式                         | `null`                                                                                        |
 | topActionsBuilder                 | `FullScreenBuilder<List<Widget>>?`      | 放置在右上角的小部件                         | `null`                                                                                        |

@@ -60,8 +60,8 @@ abstract class BaseVideoControls<T extends StatefulWidget>
   void _updateState() {
     setState(() => _value = controller.value);
 
-    SystemChrome.setSystemUIChangeCallback((_) async {
-      if (!_ && value.isFullScreen) {
+    SystemChrome.setSystemUIChangeCallback((bool isVisible) async {
+      if (!isVisible && value.isFullScreen) {
         await SystemChrome.setEnabledSystemUIMode(
           SystemUiMode.manual,
           overlays: <SystemUiOverlay>[],
