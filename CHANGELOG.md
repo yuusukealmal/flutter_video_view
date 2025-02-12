@@ -1,3 +1,8 @@
+## 2.1.2
+
+* Newly added attributes.
+  * Add `canCloseOnBack`.
+
 ## 2.1.1
 
 * `video_player` minimum version `2.8.6`
