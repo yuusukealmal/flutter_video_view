@@ -108,6 +108,7 @@ class VideoConfig {
     this.canChangeVolumeOrBrightness = true,
     this.canChangeProgress = true,
     this.canBack = true,
+    this.canCloseOnBack = false,
     this.title,
     this.titleTextStyle,
     this.topActionsBuilder,
@@ -307,6 +308,11 @@ class VideoConfig {
   ///
   /// Defaults to true.
   final bool canBack;
+
+  /// Whether [BackButton] directly closes the video in full screen mode.
+  ///
+  /// Defaults to false.
+  final bool canCloseOnBack;
 
   /// The title of video.
   final String? title;

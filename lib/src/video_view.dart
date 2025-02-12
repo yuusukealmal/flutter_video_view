@@ -33,6 +33,8 @@ class _VideoViewState extends BaseState<VideoView> {
   /// Monitor fullscreen status changes.
   StreamSubscription<bool>? _fullScreenListener;
 
+  bool canCloseOnBack = false;
+
   @override
   void initState() {
     _fullScreenListener = controller.fullScreenStream?.stream.listen(_listener);
@@ -60,6 +62,7 @@ class _VideoViewState extends BaseState<VideoView> {
       await _pushToFullScreen();
     } else {
       controller.exitFullScreen();
+      canCloseOnBack = false;
       Navigator.of(context, rootNavigator: config.useRootNavigator).pop();
     }
   }
@@ -85,9 +88,13 @@ class _VideoViewState extends BaseState<VideoView> {
     );
 
     controller.enterFullScreen();
+    canCloseOnBack = true;
     await Navigator.of(context, rootNavigator: config.useRootNavigator)
         .push(route);
     controller.exitFullScreen();
+    if (canCloseOnBack && config.canCloseOnBack && mounted) {
+      await Navigator.maybePop(context);
+    }
   }
 
   @override
